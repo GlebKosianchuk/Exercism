@@ -2,7 +2,6 @@
 {
 public static string Speak(string name = null)
     {
-        var x = name != null ? $"{name}" : "you";
-        return $"One for {x}, one for me.";
+        return $"One for {name ?? "you"}, one for me.";
     }
 }
