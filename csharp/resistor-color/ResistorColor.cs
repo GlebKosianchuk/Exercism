@@ -5,12 +5,7 @@ public static class ResistorColor
     public static int ColorCode(string color)
     {
         var colors = Colors();
-        for (var i = 0; i <= 9; i++)
-        {
-            if (colors[i] == color)
-                return(i);
-        }
-        return -1;
+        return Array.IndexOf(colors,color);
     }
 
     public static string[] Colors()
