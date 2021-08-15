@@ -1,10 +1,10 @@
 using System;
+
 public static class Gigasecond
 {
     public static DateTime Add(DateTime moment)
     {
-        var gigasecond = 1000000000;
-        var timeAfteraGigasecond = moment.AddSeconds(gigasecond);
-        return timeAfteraGigasecond;
+        const long gigasecond = 1_000_000_000;
+        return moment.AddSeconds(gigasecond);
     }
 }
