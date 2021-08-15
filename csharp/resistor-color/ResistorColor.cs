@@ -5,7 +5,7 @@ public static class ResistorColor
     public static int ColorCode(string color)
     {
         var colors = Colors();
-        return Array.IndexOf(colors ,color);
+        return Array.IndexOf(colors, color);
     }
 
     public static string[] Colors()
