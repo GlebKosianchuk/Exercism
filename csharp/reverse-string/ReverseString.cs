@@ -4,6 +4,11 @@ public static class ReverseString
 {
     public static string Reverse(string input)
     {
-        throw new NotImplementedException("You need to implement this function.");
+        string letters = "";
+            for(var i = input.Length - 1; i >= 0; i --)
+        {
+            letters += input[i];
+        }
+    return(letters);
     }
 }
