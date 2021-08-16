@@ -6,13 +6,13 @@ public static class Hamming
     {
         if (firstStrand.Length != secondStrand.Length)
             throw new ArgumentException();
-            
-        var collector = 0;
-        for (var i = 0; i <= firstStrand.Length-1; i++)
+
+        var counter = 0;
+        for (var i = 0; i < firstStrand.Length; i++)
         {
             if (firstStrand[i] != secondStrand[i])
-                collector = collector + 1;
+                counter += 1;
         }
-        return collector;
+        return counter;
     }
 }
