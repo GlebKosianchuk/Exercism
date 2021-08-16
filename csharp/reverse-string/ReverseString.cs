@@ -9,6 +9,6 @@ public static class ReverseString
         {
             letters += input[i];
         }
-    return(letters);
+    return letters;
     }
 }
