@@ -4,28 +4,15 @@ public static class Hamming
 {
     public static int Distance(string firstStrand, string secondStrand)
     {
-    var collector = 0;
-        {
-            if (firstStrand.Length > secondStrand.Length)
+        if (firstStrand.Length != secondStrand.Length)
             throw new ArgumentException();
-        }
+            
+        var collector = 0;
+        for (var i = 0; i <= firstStrand.Length-1; i++)
         {
-            if (firstStrand.Length < secondStrand.Length)
-            throw new ArgumentException();
+            if (firstStrand[i] != secondStrand[i])
+                collector = collector + 1;
         }
-        {
-            if ( firstStrand == "" && firstStrand.Length < secondStrand.Length)
-            throw new ArgumentException();
-        }
-        {
-             if ( secondStrand == "" && firstStrand.Length > secondStrand.Length)
-            throw new ArgumentException();
-        }
-            for (var i=0;i<=firstStrand.Length-1;i++)
-            {
-                if (firstStrand[i] != secondStrand[i])
-                collector=collector + 1;
-            }
-            return collector;
+        return collector;
     }
 }
