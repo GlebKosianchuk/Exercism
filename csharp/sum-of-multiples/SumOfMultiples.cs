@@ -5,19 +5,20 @@ public static class SumOfMultiples
     public static int Sum(IEnumerable<int> multiples, int max)
     {
         var uniqueMultiples = new List<int>();
-        foreach (int uniqueMultiple in multiples)
+        foreach (int multiple in multiples)
         {
-            var CurrentMultiple = 0;
+            var currentMultiple = 0;
             do
             {
-                if (!uniqueMultiples.Contains(CurrentMultiple))
+                if (!uniqueMultiples.Contains(currentMultiple))
                 {
-                    uniqueMultiples.Add(CurrentMultiple);
+                    uniqueMultiples.Add(currentMultiple);
                 }
 
-                CurrentMultiple += uniqueMultiple;
-            } while (CurrentMultiple < max && CurrentMultiple != 0);
+                currentMultiple += multiple;
+            } while (currentMultiple < max && currentMultiple != 0);
         }
+
         var sum = 0;
         foreach (int multiple in uniqueMultiples)
         {
