@@ -1,27 +1,27 @@
 ﻿using System.Collections.Generic;
+
 public static class SumOfMultiples
 {
     public static int Sum(IEnumerable<int> multiples, int max)
     {
-        var listForSumOperation = new List<int>();
-        var sum = 0;
-        foreach (int operand in multiples)
+        var uniqueMultiples = new List<int>();
+        foreach (int uniqueMultiple in multiples)
         {
-            var result = 0;
+            var CurrentMultiple = 0;
             do
             {
-                if (!listForSumOperation.Contains(result))
+                if (!uniqueMultiples.Contains(CurrentMultiple))
                 {
-                    listForSumOperation.Add(result);
+                    uniqueMultiples.Add(CurrentMultiple);
                 }
 
-                result += operand;
-            } while (result < max && result != 0);
+                CurrentMultiple += uniqueMultiple;
+            } while (CurrentMultiple < max && CurrentMultiple != 0);
         }
-
-        foreach (int multipless in listForSumOperation)
+        var sum = 0;
+        foreach (int multiple in uniqueMultiples)
         {
-            sum += multipless;
+            sum += multiple;
         }
         return sum;
     }
