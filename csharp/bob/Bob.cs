@@ -5,23 +5,23 @@ public static class Bob
     public static string Response(string statement)
     {
         var statemenntWithTrim = statement.Trim();
-        var copytToUpper = statement.ToUpper();
-
-        if (copytToUpper == statement && statement.EndsWith("?") && IsStringContainsLetter(statement))
+        var isUpperCase = statement.ToUpper();
+        var isThereAnyLetters = ContainsLetter(statement);
+        if (isUpperCase == statement && statement.EndsWith("?") && isThereAnyLetters)
             return "Calm down, I know what I'm doing!";
 
         if (statemenntWithTrim.EndsWith("?"))
             return "Sure.";
 
-        if (statemenntWithTrim == "")
+        if (string.IsNullOrWhiteSpace(statement))
             return "Fine. Be that way!";
 
-        if (statement == copytToUpper && IsStringContainsLetter(statement))
+        if (statement == isUpperCase && isThereAnyLetters)
             return "Whoa, chill out!";
 
         return "Whatever.";
     }
-       public static  bool IsStringContainsLetter(string statement)
+       private static  bool ContainsLetter(string statement)
         {
             foreach (var letter in statement)
                 if (char.IsLetter(letter))
