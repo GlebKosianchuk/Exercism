@@ -4,8 +4,11 @@ public class Queen
 {
     public Queen(int row, int column)
     {
-        if (row >= 8 || row < 0 || (column >= 8 || column < 0))
+        const int boardSize = 8;
+
+        if (row >= boardSize || row < 0 || column >= boardSize || column < 0)
             throw new ArgumentOutOfRangeException();
+
         Row = row;
         Column = column;
     }
@@ -17,11 +20,13 @@ public static class QueenAttack
 {
     public static bool CanAttack(Queen white, Queen black)
     {
-        return (white.Column == black.Column) || (white.Row == black.Row) || Math.Abs(white.Column - black.Column) == Math.Abs(white.Row - black.Row);
+        var inOneColumnOrInOneRow = (white.Column == black.Column) || (white.Row == black.Row);
+        var inOneDiagonal = Math.Abs(white.Column - black.Column) == Math.Abs(white.Row - black.Row);
+
+        return inOneColumnOrInOneRow || inOneDiagonal;
     }
     public static Queen Create(int row, int column)
     {
-        var q = new Queen(row, column);
-        return q;
+        return new Queen(row, column);;
     }
 }
