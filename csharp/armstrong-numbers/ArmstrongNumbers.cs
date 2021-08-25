@@ -11,6 +11,6 @@ public static class ArmstrongNumbers
         foreach (var digit in number.ToString())
             sumOfPowers += (int) Math.Pow(int.Parse(digit.ToString()), countOfDigits);
 
-       return sumOfPowers == number ;
+        return sumOfPowers == number ;
     }
 }
