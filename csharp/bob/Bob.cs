@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 public static class Bob
 {
@@ -6,7 +7,7 @@ public static class Bob
     {
         var statemenntWithTrim = statement.Trim();
         var isUpperCase = statement.ToUpper();
-        var isThereAnyLetters = ContainsLetter(statement);
+        var isThereAnyLetters = statement.Any(s => char.IsLetter(s));
         if (isUpperCase == statement && statement.EndsWith("?") && isThereAnyLetters)
             return "Calm down, I know what I'm doing!";
 
@@ -21,12 +22,4 @@ public static class Bob
 
         return "Whatever.";
     }
-       private static  bool ContainsLetter(string statement)
-        {
-            foreach (var letter in statement)
-                if (char.IsLetter(letter))
-                    return true;
-            return false;
-        }
-    
 }
