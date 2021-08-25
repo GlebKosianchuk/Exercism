@@ -8,9 +8,9 @@ public static class ArmstrongNumbers
         var numberToString = number.ToString();
         var countOfDigits = numberToString.Length;
 
-        foreach (var digit in number.ToString())
+        foreach (var digit in numberToString)
             sumOfPowers += (int) Math.Pow(int.Parse(digit.ToString()), countOfDigits);
 
-        return sumOfPowers == number ;
+        return sumOfPowers == number;
     }
 }
