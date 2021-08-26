@@ -2,19 +2,23 @@ public static class RnaTranscription
 {
     public static string ToRna(string nucleotide)
     {
-        var dnaletters= nucleotide.ToCharArray();
-        for (var i = 0; i < dnaletters.Length; i++)
+        var length = nucleotide.Length;
+        var dnaLetters = nucleotide.ToCharArray();
+        var rnaLetters = new char[length];
+
+        for (var i = 0; i < dnaLetters.Length; i++)
         {
-            var letter = dnaletters[i] switch
+            var letter = dnaLetters[i] switch
             {
                 'C' => 'G',
                 'G' => 'C',
                 'T' => 'A',
                 'A' => 'U',
-                 _  => dnaletters[i]
+                 _  => rnaLetters[i]
             };
-            dnaletters[i] = letter;
+            rnaLetters[i] = letter;
         }
-        return new string(dnaletters);
+
+        return new string(rnaLetters);
     }
-}   
+} 
