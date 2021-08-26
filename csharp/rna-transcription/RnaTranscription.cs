@@ -2,24 +2,23 @@ public static class RnaTranscription
 {
     public static string ToRna(string nucleotide)
     {
-        var dnaletters = nucleotide.ToCharArray();
+        var dnaletters= nucleotide.ToCharArray();
         for (var i = 0; i < dnaletters.Length; i++)
-          
-            if (dnaletters[i] == 'C')
-                dnaletters[i] = 'G';
-            else
-                if (dnaletters[i] == 'G')
-                dnaletters[i] = 'C';
-            else
-                if (dnaletters[i] == 'T')
-                dnaletters[i] = 'A';
-            else
-                if (dnaletters[i] == 'A')
-                dnaletters[i] = 'U';
-
-        string rna = new string(dnaletters);
-        return rna;
-
-
+            switch(dnaletters[i])
+            {
+                case 'C':
+                    dnaletters[i] = 'G';
+                    break;
+                case 'G':
+                    dnaletters[i] = 'C';
+                    break;
+                case 'T':
+                    dnaletters[i] = 'A';
+                    break;
+                case 'A':
+                    dnaletters[i] = 'U';
+                    break;
+            }
+        return new string(dnaletters);
     }
 }
