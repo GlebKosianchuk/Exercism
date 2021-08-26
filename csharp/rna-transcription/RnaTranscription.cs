@@ -4,21 +4,17 @@ public static class RnaTranscription
     {
         var dnaletters= nucleotide.ToCharArray();
         for (var i = 0; i < dnaletters.Length; i++)
-            switch(dnaletters[i])
+        {
+            var letter = dnaletters[i] switch
             {
-                case 'C':
-                    dnaletters[i] = 'G';
-                    break;
-                case 'G':
-                    dnaletters[i] = 'C';
-                    break;
-                case 'T':
-                    dnaletters[i] = 'A';
-                    break;
-                case 'A':
-                    dnaletters[i] = 'U';
-                    break;
-            }
+                'C' => 'G',
+                'G' => 'C',
+                'T' => 'A',
+                'A' => 'U',
+                 _  => dnaletters[i]
+            };
+            dnaletters[i] = letter;
+        }
         return new string(dnaletters);
     }
-}
+}   
