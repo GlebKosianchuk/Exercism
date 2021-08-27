@@ -1,19 +1,21 @@
-using System;
-
 public static class Raindrops
 {
     public static string Convert(int number)
     {
-        string resultString = "";
-        if (number % 3 == 0)
-            resultString += "Pling";
-        if (number % 5 == 0)
-            resultString += "Plang";
-        if (number % 7 == 0)
-            resultString += "Plong";
-        if (resultString == "")
-            resultString = number.ToString();
-        return resultString;
-       
+        var factorToRaindrop = new (int digit, string raindrop)[]
+        {
+            (3, "Pling"),
+            (5, "Plang"),
+            (7, "Plong")
+        };
+        var result = "";
+
+        foreach(var (factor, raindrop) in factorToRaindrop)
+        {
+            if (number % factor == 0)
+                result += raindrop;
+        }
+
+        return result == "" ? number.ToString() : result;
     }
 }
