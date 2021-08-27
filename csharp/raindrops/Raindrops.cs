@@ -2,7 +2,7 @@ public static class Raindrops
 {
     public static string Convert(int number)
     {
-        var factorToRaindrop = new (int digit, string raindrop)[]
+        var factorToRaindrop = new[]
         {
             (3, "Pling"),
             (5, "Plang"),
